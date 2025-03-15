@@ -1,0 +1,23 @@
+:root {
+  --color-dark: ''; // чёрный
+  --color-light: ''; // белый
+  --color-gray: ''; // inactive вкладка навигации и описания карточек
+  --color-blue: ''; // синий для тайтлов иконок
+  --color-blue-alt: ''; // синий для инпут (focus)
+  --color-blue-light: ''; // bg страницы
+  --color-blue-light-border: '';
+  --color-gradient: ''; // градиент для дровера
+
+  --border: 1px solid var(--color-blue-light-border); // бордер для search bar
+  --border-radius: 14px;
+  --border-radius-small: 7px;
+
+  --shadow: 0 5px 0 0 var(--color-dark);
+
+  --font-family-base: '', sans-serif; // шрифт базовый
+
+  --container-width: 1920px; // ширина контейнера
+  --container-padding-x: 20px; // падинги для контейнера
+
+  --transition-duration: 0.2s;
+}
