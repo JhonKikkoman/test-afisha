@@ -4,3 +4,7 @@
 @use 'styles/variables';
 @use 'styles/media';
 @use 'styles/mixins';
+
+@use 'blocks/navbar';
+@use 'blocks/dropdown';
+@use 'blocks/search-date';

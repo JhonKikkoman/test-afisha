@@ -1,12 +1,9 @@
-import { getCurrentWeather } from '../../api/weather';
-import useGetData from '../../hooks/useGetData';
+import SearchBar from '../ui/SearchBar';
 
 export default function TicketSales() {
-  const { data } = useGetData({
-    request: getCurrentWeather,
-    params: 'Simferopol',
-  });
-  console.log(data);
-
-  return <div>TicketSales</div>;
+  return (
+    <main>
+      <SearchBar />
+    </main>
+  );
 }

@@ -1,6 +1,6 @@
 :root {
   --color-dark: ''; // чёрный
-  --color-light: ''; // белый
+  --color-light: '#ffffff'; // белый
   --color-gray: ''; // inactive вкладка навигации и описания карточек
   --color-blue: ''; // синий для тайтлов иконок
   --color-blue-alt: ''; // синий для инпут (focus)
@@ -10,7 +10,7 @@
 
   --border: 1px solid var(--color-blue-light-border); // бордер для search bar
   --border-radius: 14px;
-  --border-radius-small: 7px;
+  --border-radius-small: 2px;
 
   --shadow: 0 5px 0 0 var(--color-dark);
 
@@ -19,5 +19,5 @@
   --container-width: 1920px; // ширина контейнера
   --container-padding-x: 20px; // падинги для контейнера
 
-  --transition-duration: 0.2s;
+  --transition-duration: 0.4s;
 }

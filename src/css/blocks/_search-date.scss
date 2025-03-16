@@ -1,0 +1,75 @@
+.date-search {
+  --date-search-width: 200px;
+
+  position: relative;
+  width: var(--date-search-width);
+
+  // без кастомного класса нельзя убрать дефолтное поведение инпута встроенного datepicker
+  &__input {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--color-light);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  // кастомизация встроеннымх стилей календаря react-datepicker
+  .react-datepicker {
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius-small);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .react-datepicker-wrapper {
+    width: var(--date-search-width);
+  }
+
+  .react-datepicker__header {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+
+  .react-datepicker__current-month {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .react-datepicker__day-name,
+  .react-datepicker__day {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin: 2px;
+  }
+
+  // стили для ui - выбор дня (hover & selected)
+  .react-datepicker__day {
+    cursor: pointer;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    &--selected {
+      background-color: #007bff; // тут цвет менять как в макете
+    }
+  }
+
+  .react-datepicker__navigation {
+    top: 5px;
+  }
+
+  // иконка стрелки навигации
+  .react-datepicker__navigation-icon {
+    &::before {
+      border-color: #a69dfc; // тут цвет менять как в макете
+      border-width: 2px 2px 0 0;
+      width: 9px;
+      height: 9px;
+    }
+  }
+}
