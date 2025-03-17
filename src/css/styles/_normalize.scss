@@ -21,6 +21,11 @@ body,
   margin-block: 0;
 }
 
+/** Убираем стандартное поведение у инпутов и кнопок, border при состоянии focus у которых есть атрибут class */
+:where(input, button):where([class]) {
+  outline: none;
+}
+
 :where(dd[class]) {
   margin-left: 0;
 }

@@ -4,9 +4,9 @@ import NavBar from './ui/NavBar';
 
 export default function Layout() {
   return (
-    <div className="container">
+    <main className="wrapper container">
       <NavBar />
       <Outlet />
-    </div>
+    </main>
   );
 }

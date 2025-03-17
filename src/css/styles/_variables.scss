@@ -1,23 +1,30 @@
 :root {
-  --color-dark: ''; // чёрный
-  --color-light: '#ffffff'; // белый
-  --color-gray: ''; // inactive вкладка навигации и описания карточек
-  --color-blue: ''; // синий для тайтлов иконок
-  --color-blue-alt: ''; // синий для инпут (focus)
-  --color-blue-light: ''; // bg страницы
-  --color-blue-light-border: '';
-  --color-gradient: ''; // градиент для дровера
+  --color-dark: #000;
+  --color-light: #ffffff;
+  --color-gray: #a5b3bc; // inactive вкладка навигации и описания карточек
+  --color-accent-gray: #2a3f4f; // active вкладка навигации
+  --color-blue: #0088ff; // синий для тайтлов иконок
+  --color-blue-alt: #cee6f8; // синий альт бордер
+  --color-blue-bg-focus: #dff1ff; // bg инпута
+  --color-blue-light: #f3faff; // bg страницы
+  --color-gradient:
+    linear-gradient(
+      180deg,
+      rgba(0, 145, 255, 0.2) 0%,
+      rgba(0, 145, 255, 0) 100%
+    ),
+    linear-gradient(180deg, rgba(255, 0, 0, 0) 0%, rgba(255, 0, 0, 0.2) 100%),
+    #88c5f2; // градиент для дровера
 
-  --border: 1px solid var(--color-blue-light-border); // бордер для search bar
-  --border-radius: 14px;
+  --border: 1px solid var(--color-blue-alt);
   --border-radius-small: 2px;
 
   --shadow: 0 5px 0 0 var(--color-dark);
 
-  --font-family-base: '', sans-serif; // шрифт базовый
+  --font-family-base: 'Montserrat', sans-serif;
 
   --container-width: 1920px; // ширина контейнера
-  --container-padding-x: 20px; // падинги для контейнера
+  --container-padding-x: 18px; // падинги для контейнера
 
-  --transition-duration: 0.4s;
+  --transition-duration: 0.2s;
 }

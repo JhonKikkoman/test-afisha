@@ -1,0 +1,26 @@
+.search {
+  position: relative;
+
+  &__input {
+    width: 607px;
+    padding: 11px 0 10px 20px;
+
+    font-size: 14px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    border: var(--border);
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-light);
+
+    &:focus {
+      background-color: var(--color-blue-bg-focus);
+    }
+
+    &-wrapper {
+      position: absolute;
+      top: 8px; // 10px лучше выглядит(центрировано) по отношению к placeholder
+      right: 16px;
+      cursor: pointer;
+    }
+  }
+}

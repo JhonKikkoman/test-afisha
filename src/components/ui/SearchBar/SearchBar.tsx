@@ -1,5 +1,7 @@
 import DropDown from './DropDown';
 import SearchDate from './SearchDate';
+import SearchInput from './SearchInput';
+import Widget from './Widget';
 
 export type dropdownItemsT = { id: number; item: string };
 
@@ -17,16 +19,12 @@ export default function SearchBar() {
   return (
     <div className="search-bar">
       <div className="search-bar__body">
-        <div className="search">
-          <input
-            className="search__input"
-            type="text"
-            placeholder="Введите название события"
-          />
-        </div>
+        <SearchInput />
         <DropDown placeholder="Категория" dropdownItems={categories} />
         <DropDown placeholder="Все города" dropdownItems={cities} />
         <SearchDate />
+        <button className="search-bar__button">Найти</button>
+        <Widget />
       </div>
     </div>
   );

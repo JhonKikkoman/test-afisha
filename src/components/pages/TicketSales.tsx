@@ -2,8 +2,8 @@ import SearchBar from '../ui/SearchBar';
 
 export default function TicketSales() {
   return (
-    <main>
+    <div>
       <SearchBar />
-    </main>
+    </div>
   );
 }

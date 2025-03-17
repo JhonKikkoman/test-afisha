@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { dropdownItemsT } from './SearchBar';
 
@@ -10,10 +10,27 @@ interface IProps {
 export default function DropDown({ dropdownItems, placeholder }: IProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectItem, setSelectItem] = useState('');
+  const dropDownRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setSelectItem(placeholder);
   }, [placeholder]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isContains = !dropDownRef.current?.contains(event.target as Node);
+
+      if (dropDownRef.current && isContains) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const handleToggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -25,7 +42,7 @@ export default function DropDown({ dropdownItems, placeholder }: IProps) {
   };
 
   return (
-    <div className="dropdown">
+    <div className="dropdown" ref={dropDownRef}>
       <button className="dropdown__toggle" onClick={handleToggleDropdown}>
         {selectItem}
         <span className={`dropdown__arrow ${isOpen ? 'open' : ''}`} />

@@ -6,5 +6,8 @@
 @use 'styles/mixins';
 
 @use 'blocks/navbar';
-@use 'blocks/dropdown';
-@use 'blocks/search-date';
+
+@use 'blocks/search-bar/search-bar';
+@use 'blocks/search-bar/search-input';
+@use 'blocks/search-bar/dropdown';
+@use 'blocks/search-bar/search-date';

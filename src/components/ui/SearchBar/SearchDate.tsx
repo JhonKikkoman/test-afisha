@@ -9,7 +9,7 @@ export default function SearchDate() {
 
   const formatDate = (date: Date | null) => {
     if (!date) {
-      return 'Выберите дату';
+      return 'Поиск по дате';
     }
     return date.toLocaleDateString('ru-RU', {
       day: '2-digit',
@@ -24,7 +24,9 @@ export default function SearchDate() {
         selected={selectedDate}
         onChange={date => setSelectedDate(date)}
         customInput={
-          <div className="date-search__input">{formatDate(selectedDate)}</div>
+          <button className="date-search__button">
+            {formatDate(selectedDate)}
+          </button>
         }
         dateFormat="dd.MM.yyyy"
         placeholderText="Поиск по дате"

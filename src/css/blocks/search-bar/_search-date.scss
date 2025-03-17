@@ -3,16 +3,24 @@
 
   position: relative;
   width: var(--date-search-width);
+  outline: none;
 
   // без кастомного класса нельзя убрать дефолтное поведение инпута встроенного datepicker
-  &__input {
+  &__button {
     width: 100%;
-    padding: 10px 15px;
+    padding: 11px 17px 10px 20px;
     background-color: var(--color-light);
-    border: 1px solid #ccc;
+    border: var(--border);
     border-radius: var(--border-radius-small);
-    cursor: pointer;
+
     font-size: 14px;
+    font-family: var(--font-family-base);
+    font-weight: 400;
+    cursor: pointer;
+
+    &:focus {
+      background-color: var(--color-blue-bg-focus);
+    }
   }
 
   // кастомизация встроеннымх стилей календаря react-datepicker
