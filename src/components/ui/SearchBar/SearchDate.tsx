@@ -4,29 +4,45 @@ import 'react-datepicker/dist/react-datepicker.css'; // встроенные с�
 
 import DatePicker from 'react-datepicker';
 
+import { formatDate } from '../../../utils/getDate';
+
 export default function SearchDate() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [openCalendar, setOpenCalendar] = useState(false);
 
-  const formatDate = (date: Date | null) => {
-    if (!date) {
-      return 'Поиск по дате';
-    }
-    return date.toLocaleDateString('ru-RU', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-    });
-  };
+  console.log(openCalendar);
 
   return (
     <div className="date-search">
       <DatePicker
+        open={openCalendar}
         selected={selectedDate}
-        onChange={date => setSelectedDate(date)}
+        onChange={date => {
+          setSelectedDate(date);
+          setIsOpen(false);
+          setOpenCalendar(false);
+        }}
+        onClickOutside={() => {
+          setIsOpen(false);
+          setOpenCalendar(false);
+        }}
+        onInputClick={() => {
+          console.log(openCalendar);
+          setIsOpen(prev => !prev);
+          setOpenCalendar(prev => !prev);
+        }}
         customInput={
-          <button className="date-search__button">
-            {formatDate(selectedDate)}
-          </button>
+          <div className="date-search__button-wrapper">
+            <div
+              className={`date-search__button ${isOpen ? 'button_active' : ''}`}
+            >
+              {formatDate(selectedDate)}
+            </div>
+            <span className="date-search__icon">
+              <img src="/src/css/icons/calendar-icon.svg" alt="calendar" />
+            </span>
+          </div>
         }
         dateFormat="dd.MM.yyyy"
         placeholderText="Поиск по дате"

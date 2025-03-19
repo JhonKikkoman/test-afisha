@@ -33,7 +33,7 @@ export default function DropDown({ dropdownItems, placeholder }: IProps) {
   }, []);
 
   const handleToggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(prev => !prev);
   };
 
   const handleCategorySelect = (dropDownItem: string) => {

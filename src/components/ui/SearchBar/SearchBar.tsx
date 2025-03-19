@@ -23,7 +23,9 @@ export default function SearchBar() {
         <DropDown placeholder="Категория" dropdownItems={categories} />
         <DropDown placeholder="Все города" dropdownItems={cities} />
         <SearchDate />
-        <button className="search-bar__button">Найти</button>
+        <button className="search-bar__button" type="button">
+          Найти
+        </button>
         <Widget />
       </div>
     </div>

@@ -1,0 +1,24 @@
+<svg width="92" height="24" viewBox="0 0 92 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="92" height="24" fill="#F5F5F5"/>
+<g id="1 Home 1 &#208;&#159;&#209;&#128;&#208;&#190;&#208;&#180;&#208;&#176;&#208;&#182;&#208;&#176; &#208;&#177;&#208;&#184;&#208;&#187;&#208;&#181;&#209;&#130;&#208;&#190;&#208;&#178;" clip-path="url(#clip0_0_1)">
+<rect width="1920" height="1080" transform="translate(-1745 -96)" fill="white"/>
+<rect id="&#208;&#190;&#208;&#177;&#209;&#137;&#208;&#184;&#208;&#185; &#209;&#132;&#208;&#190;&#208;&#189;" x="-1745" y="-96" width="1920" height="1080" fill="white"/>
+<rect id="&#209;&#128;&#208;&#176;&#208;&#177;&#208;&#190;&#209;&#135;&#208;&#176;&#209;&#143; &#208;&#190;&#208;&#177;&#208;&#187;&#208;&#176;&#209;&#129;&#209;&#130;&#209;&#140;" x="-1745" y="-96" width="1920" height="1080" fill="#F3FAFF"/>
+<g id="&#208;&#178;&#208;&#184;&#208;&#180;">
+<g id="apps">
+<path id="Shape" fill-rule="evenodd" clip-rule="evenodd" d="M4 8H8V4H4V8ZM10 20H14V16H10V20ZM4 20H8V16H4V20ZM4 14H8V10H4V14ZM10 14H14V10H10V14ZM16 4V8H20V4H16ZM10 8H14V4H10V8ZM16 14H20V10H16V14ZM16 20H20V16H16V20Z" fill="#0088FF"/>
+</g>
+<g id="apps_2">
+<path id="Shape_2" fill-rule="evenodd" clip-rule="evenodd" d="M38 8H42V4H38V8ZM44 20H54V16H44V20ZM38 20H42V16H38V20ZM38 14H42V10H38V14ZM44 14H54V10H44V14ZM44 8H54V4H44V8Z" fill="#CEE6F8"/>
+</g>
+<g id="apps_3">
+<path id="Shape_3" fill-rule="evenodd" clip-rule="evenodd" d="M72 8H88V4H72V8ZM72 20H88V16H72V20ZM72 14H88V10H72V14Z" fill="#CEE6F8"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_1">
+<rect width="1920" height="1080" fill="white" transform="translate(-1745 -96)"/>
+</clipPath>
+</defs>
+</svg>

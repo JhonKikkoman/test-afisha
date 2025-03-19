@@ -1,3 +1,3 @@
 export default function EventsManagment() {
-  return <div>EventsManagment</div>;
+  return <div></div>;
 }

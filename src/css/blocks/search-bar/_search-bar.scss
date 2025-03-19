@@ -2,5 +2,25 @@
   &__body {
     display: flex;
     gap: 15px;
+    align-items: center;
+  }
+
+  &__button {
+    width: 115px;
+    padding: 10px 12px;
+
+    font-family: var(--font-family-base);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-blue);
+    text-align: center;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--color-blue);
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-light);
+
+    &:hover {
+      background-color: var(--color-blue-bg-focus);
+    }
   }
 }

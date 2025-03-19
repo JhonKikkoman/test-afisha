@@ -1,8 +1,11 @@
 .search {
+  min-width: 280px;
+  max-width: 607px;
+  flex-grow: 2;
   position: relative;
 
   &__input {
-    width: 607px;
+    width: 100%;
     padding: 11px 0 10px 20px;
 
     font-size: 14px;

@@ -1,0 +1,134 @@
+.main__content {
+  margin-top: 25px;
+  padding-bottom: 28px;
+}
+
+.board {
+  &__list {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+  &__item {
+    border-radius: 10px;
+    overflow: hidden;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+  }
+}
+
+.card {
+  --image-width: 229px;
+  --badge-width: 110px;
+
+  width: var(--image-width);
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: 15px;
+
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-quote {
+      display: none;
+
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--color-light);
+
+      padding: 32px 20px;
+    }
+
+    &-button {
+      display: none;
+      width: 122px;
+
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-blue);
+
+      padding: 16px 17px;
+      border: 1px solid var(--color-blue);
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0);
+      cursor: pointer;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.85);
+      transition: 0.3s linear;
+
+      .card__mask-quote {
+        display: block;
+      }
+      .card__mask-button {
+        display: block;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    &-badge {
+      position: absolute;
+      left: calc((var(--image-width) - var(--badge-width)) / 2);
+
+      padding: 2px 9px 3px 9px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-blue);
+
+      background-color: var(--color-light);
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  &__description {
+    background-color: var(--color-light);
+    padding: 20px;
+
+    &-date {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+    &-text {
+      font-size: 11px;
+      color: var(--color-gray);
+      margin-bottom: 9px;
+    }
+    &-price {
+      display: flex;
+      gap: 6px;
+
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
+
+.date-perfomance {
+  color: var(--color-gray);
+}
+
+.currency {
+  color: var(--color-gray);
+  font-weight: 600;
+}
