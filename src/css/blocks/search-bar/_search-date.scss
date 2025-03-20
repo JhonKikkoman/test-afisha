@@ -4,13 +4,13 @@
 
   min-width: var(--search-min-width);
   max-width: var(--search-max-width);
-  display: flex;
-  flex-grow: 2;
   position: relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 2;
 
   // кастомный класс
   &__button {
-    width: 100%;
     padding: 11px 17px 10px 20px;
     background-color: var(--color-light);
     border: var(--border);
@@ -25,8 +25,9 @@
     user-select: none;
 
     &-wrapper {
-      position: relative;
+      position: absolute;
       min-width: var(--search-min-width);
+      width: 100%;
     }
   }
 
@@ -85,6 +86,10 @@
 
     &--selected {
       background-color: var(--color-blue);
+    }
+
+    &--keyboard-selected {
+      background-color: var(--color-light);
     }
   }
 

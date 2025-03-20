@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import 'react-datepicker/dist/react-datepicker.css'; // встроенные стили для datepicker
 
@@ -9,41 +9,46 @@ import { formatDate } from '../../../utils/getDate';
 export default function SearchDate() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [openCalendar, setOpenCalendar] = useState(false);
+  const btnCalendarRef = useRef<HTMLDivElement | null>(null);
 
-  console.log(openCalendar);
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isContains = !btnCalendarRef.current?.contains(
+        event.target as Node,
+      );
 
+      if (btnCalendarRef.current && isContains) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleClick = () => setIsOpen(prev => !prev);
   return (
-    <div className="date-search">
+    <div className="date-search" ref={btnCalendarRef}>
+      <div className="date-search__button-wrapper" onClick={handleClick}>
+        <div className={`date-search__button ${isOpen ? 'button_active' : ''}`}>
+          {formatDate(selectedDate)}
+        </div>
+        <div>
+          <span className="date-search__icon">
+            <img src="/src/css/icons/calendar-icon.svg" alt="calendar" />
+          </span>
+        </div>
+      </div>
       <DatePicker
-        open={openCalendar}
         selected={selectedDate}
         onChange={date => {
           setSelectedDate(date);
           setIsOpen(false);
-          setOpenCalendar(false);
         }}
-        onClickOutside={() => {
-          setIsOpen(false);
-          setOpenCalendar(false);
-        }}
-        onInputClick={() => {
-          console.log(openCalendar);
-          setIsOpen(prev => !prev);
-          setOpenCalendar(prev => !prev);
-        }}
-        customInput={
-          <div className="date-search__button-wrapper">
-            <div
-              className={`date-search__button ${isOpen ? 'button_active' : ''}`}
-            >
-              {formatDate(selectedDate)}
-            </div>
-            <span className="date-search__icon">
-              <img src="/src/css/icons/calendar-icon.svg" alt="calendar" />
-            </span>
-          </div>
-        }
+        open={isOpen}
+        customInput={<p className="visually-hidden"></p>}
         dateFormat="dd.MM.yyyy"
         placeholderText="Поиск по дате"
         showPopperArrow={false}

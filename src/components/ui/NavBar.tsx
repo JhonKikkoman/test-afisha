@@ -8,11 +8,16 @@ const titleArray: titleT[] = [
   { id: 2, title: 'Управление событиями', route: '/events' },
 ];
 
-export default function NavBar() {
+interface IProps {
+  reset: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function NavBar({ reset }: IProps) {
   const [active, setActive] = useState<number>(titleArray[0].id);
   const navigate = useNavigate();
 
   const handleClick = (id: number, route: string) => {
+    reset(0);
     navigate(route);
     setActive(id);
   };

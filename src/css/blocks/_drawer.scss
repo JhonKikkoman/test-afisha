@@ -1,50 +1,37 @@
 .side-bar {
+  --drawer-static-width: 66px;
+  --drawer-open-width: 265px;
+  --drawer-transition-duration: 0.4s;
+  --divider-width: 12px;
+  --padding-x: 9px;
+
   &__wrapper {
     font-family: var(--font-family-base);
     font-size: 16px;
 
-    width: 66px;
+    width: var(--drawer-static-width);
     height: 100%;
 
     background: var(--color-gradient);
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
   }
 
   &__header {
-    padding: 18px 0 18px 0;
+    padding: 18px var(--padding-x);
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-inline: 9px;
+    padding-inline: var(--padding-x);
     gap: 41px;
 
     margin-bottom: 42px;
   }
-}
-
-.drawer__icon {
-  display: inline-block;
-  cursor: pointer;
-
-  &-wrapper {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 15px;
-
-    &:hover {
+  &__item {
+    &-selected {
       background-color: var(--color-blue);
       transition-duration: var(--transition-duration);
       box-shadow:
@@ -55,10 +42,68 @@
   }
 }
 
+.drawer__icon {
+  display: inline-block;
+
+  &-wrapper {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+  }
+}
+
 .divider {
   display: inline-block;
-  width: 12px;
+  width: var(--divider-width);
   border: 1px solid var(--color-light);
   opacity: 0.5;
-  margin-bottom: 42px;
+  margin: 0 auto 42px;
+}
+
+.weather {
+  padding-inline: var(--padding-x);
+}
+
+// Стили для дровера открытие/закрытие
+.drawer__open {
+  width: var(--drawer-open-width);
+  transition-duration: var(--drawer-transition-duration);
+}
+
+.drawer__close {
+  width: var(--drawer-static-width);
+  transition-duration: var(--drawer-transition-duration);
+}
+
+.header__open {
+  width: 100%;
+}
+
+.header__close {
+  width: 48px;
+}
+
+.divider__open {
+  margin: 0 auto 42px;
+  width: calc(var(--drawer-open-width) - 36px);
+  transition: width 0.3s 0.1s;
+}
+
+.divider__close {
+  transition-duration: var(--drawer-transition-duration);
+  width: var(--divider-width);
+}
+
+.body__open {
+  margin-right: auto;
+}
+
+.body__close {
+  margin-right: 0px;
 }
