@@ -1,28 +1,43 @@
+@use '../styles/media';
+
 .header__menu {
   padding-top: 31px;
   margin-bottom: 25px;
 
+  @include media.mobile {
+    padding: 0;
+    margin: 0 0 25px 0;
+  }
+
   &-list {
     display: flex;
     align-items: flex-end;
+
+    @include media.mobile {
+      flex-direction: column;
+      gap: 10px;
+    }
   }
 
   &-item {
     width: 360px;
     height: 32px;
+
     font-family: 'Montserrat';
     font-weight: 500;
     font-size: 17px;
+
     text-align: center;
     line-height: 2;
     cursor: pointer;
     color: var(--color-gray);
     border-bottom: var(--border);
-  }
 
-  &-link {
-    color: inherit;
-    text-decoration: none;
+    @include media.mobile {
+      width: 100%;
+      font-size: 15px;
+      height: auto;
+    }
   }
 }
 

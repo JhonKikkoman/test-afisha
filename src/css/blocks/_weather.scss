@@ -1,4 +1,12 @@
+@use '../styles/media';
+
 .weather {
+  @include media.mobile {
+    padding: 0px;
+    margin: 9px;
+    border-left: 1px solid var(--color-blue-alt);
+  }
+
   &__main {
     display: flex;
     justify-content: center;

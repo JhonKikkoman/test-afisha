@@ -1,8 +1,22 @@
+@use '../../styles/media';
+
 .search-bar {
+  @include media.tablet {
+    margin-right: 10px;
+  }
+
   &__body {
     display: flex;
     gap: 15px;
     align-items: center;
+
+    @include media.tablet {
+      flex-wrap: wrap;
+    }
+
+    @include media.mobile {
+      flex-direction: column;
+    }
   }
 
   &__button {
@@ -12,6 +26,7 @@
     font-family: var(--font-family-base);
     font-size: 14px;
     font-weight: 600;
+
     color: var(--color-blue);
     text-align: center;
     letter-spacing: 0.5px;
@@ -21,6 +36,20 @@
 
     &:hover {
       background-color: var(--color-blue-bg-focus);
+    }
+
+    @include media.tablet {
+      &:hover {
+        background-color: var(--color-light);
+      }
+    }
+
+    @include media.mobile {
+      width: 60%;
+
+      &:hover {
+        background-color: var(--color-light);
+      }
     }
   }
 }

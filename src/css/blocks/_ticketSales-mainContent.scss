@@ -1,3 +1,5 @@
+@use '../styles/media';
+
 .main__content {
   margin-top: 25px;
   padding-bottom: 28px;
@@ -8,7 +10,19 @@
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
+
+    &-active {
+      width: 60%;
+    }
+
+    @include media.mobile {
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
   }
+
   &__item {
     border-radius: 10px;
     overflow: hidden;
@@ -31,6 +45,14 @@
   font-weight: 500;
   font-size: 15px;
 
+  @include media.mobile {
+    width: 220px;
+  }
+
+  &-active {
+    width: 100%;
+  }
+
   &__mask {
     position: absolute;
     top: 0;
@@ -43,6 +65,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &-active {
+      display: none;
+    }
 
     &-quote {
       display: none;
@@ -85,6 +111,10 @@
   &__image {
     position: relative;
 
+    &-active {
+      display: none;
+    }
+
     &-badge {
       position: absolute;
       left: calc((var(--image-width) - var(--badge-width)) / 2);
@@ -104,16 +134,34 @@
     background-color: var(--color-light);
     padding: 20px;
 
+    &-active {
+      display: flex;
+      padding: 15px;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+    }
+
     &-date {
       display: flex;
       gap: 6px;
       margin-bottom: 9px;
+
+      &-active {
+        margin-bottom: 0px;
+      }
     }
+
     &-text {
       font-size: 11px;
       color: var(--color-gray);
       margin-bottom: 9px;
+
+      &-active {
+        margin-bottom: 0px;
+      }
     }
+
     &-price {
       display: flex;
       gap: 6px;

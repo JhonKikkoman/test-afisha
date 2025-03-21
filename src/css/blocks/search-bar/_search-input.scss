@@ -1,8 +1,15 @@
+@use '../../styles/media';
+
 .search {
   min-width: 280px;
   max-width: 607px;
   flex-grow: 2;
   position: relative;
+
+  @include media.mobile {
+    max-width: 100%;
+    width: 100%;
+  }
 
   &__input {
     width: 100%;
@@ -11,6 +18,7 @@
     font-size: 14px;
     font-family: var(--font-family-base);
     font-weight: 400;
+
     border: var(--border);
     border-radius: var(--border-radius-small);
     background-color: var(--color-light);

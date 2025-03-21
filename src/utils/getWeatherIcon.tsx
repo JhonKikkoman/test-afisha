@@ -26,8 +26,9 @@ export function getWeatherIcon(iconCode: string | undefined) {
   let ComponentIcon;
   if (iconCode) {
     ComponentIcon = iconCodeMap[iconCode as keyof typeof iconCodeMap];
+  } else {
+    ComponentIcon = WeatherIcons.WiDaySunny;
   }
-  ComponentIcon = WeatherIcons.WiDaySunny;
   return (
     <>
       <span>

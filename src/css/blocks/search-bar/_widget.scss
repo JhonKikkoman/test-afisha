@@ -1,3 +1,5 @@
+@use '../../styles/media';
+
 .widget {
   min-width: 94px;
   height: 24px;
@@ -8,4 +10,12 @@
   align-items: center;
 
   cursor: pointer;
+
+  @include media.tablet {
+    display: none;
+  }
+
+  @include media.mobile {
+    display: none;
+  }
 }

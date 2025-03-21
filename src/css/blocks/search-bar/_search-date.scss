@@ -1,3 +1,5 @@
+@use '../../styles/media';
+
 .date-search {
   --search-min-width: 170px;
   --search-max-width: 204px;
@@ -9,6 +11,12 @@
   align-items: center;
   flex-grow: 2;
 
+  @include media.mobile {
+    height: 44px;
+    max-width: 100%;
+    width: 60%;
+  }
+
   // кастомный класс
   &__button {
     padding: 11px 17px 10px 20px;
@@ -19,6 +27,7 @@
     font-size: 14px;
     font-family: var(--font-family-base);
     font-weight: 400;
+
     text-align: start;
     white-space: nowrap;
     cursor: pointer;
@@ -50,6 +59,11 @@
     min-width: var(--search-min-width);
     max-width: var(--search-max-width);
     flex-grow: 2;
+
+    @include media.mobile {
+      max-width: 100%;
+      width: 100%;
+    }
   }
 
   .react-datepicker-popper {

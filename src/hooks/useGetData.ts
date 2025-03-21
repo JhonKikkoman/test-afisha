@@ -29,9 +29,9 @@ const useGetData = ({ request, params }: useGetDataT) => {
         setData(response.data);
       }
     } catch (err) {
-      setError(
-        err instanceof AxiosError ? err.response?.data : 'Ошибка запроса',
-      );
+      const _e =
+        err instanceof AxiosError ? err.response?.data : 'Ошибка запроса';
+      setError(_e);
     } finally {
       setLoading(false);
     }

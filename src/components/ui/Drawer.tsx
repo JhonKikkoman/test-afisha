@@ -1,26 +1,45 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { arrUrl } from '../../_constants';
 
 interface IProps {
-  selected: number;
-  newSelect: React.Dispatch<React.SetStateAction<number>>;
+  selected: number | null;
+  newSelect: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 export default function Drawer({ selected, newSelect }: IProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const sideBarRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const isContains = !sideBarRef.current?.contains(event.target as Node);
+
+      if (sideBarRef.current && isContains) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const navigate = useNavigate();
 
   const handleToggle = () => setIsOpen(prev => !prev);
+
   const handleClick = () => navigate('/weather');
+
   const handleClickItems = (path: string, id: number) => {
     newSelect(id);
     navigate(path);
   };
+
   return (
-    <aside className="side-bar">
+    <aside className="side-bar" ref={sideBarRef}>
       <div
         className={`side-bar__wrapper ${isOpen ? 'drawer__open' : 'drawer__close'}`}
       >
@@ -45,17 +64,17 @@ export default function Drawer({ selected, newSelect }: IProps) {
           className={`divider ${isOpen ? 'divider__open' : 'divider__close'}`}
         ></span>
 
-        <div
-          className={`side-bar__body ${isOpen ? 'body__open' : 'body__close'}`}
-        >
+        <div className="side-bar__body">
           <ul className="side-bar__list">
             {arrUrl.map(({ id, downloadUrl, path }) => (
               <li className="side-bar__item" key={id}>
                 <div
                   className={`drawer__icon-wrapper ${selected === id ? 'side-bar__item-selected' : ''}`}
-                  onClick={() => handleClickItems(path, id)}
                 >
-                  <span className="drawer__icon">
+                  <span
+                    className="drawer__icon"
+                    onClick={() => handleClickItems(path, id)}
+                  >
                     <img src={downloadUrl} alt="icon" loading="lazy" />
                   </span>
                 </div>
@@ -71,7 +90,11 @@ export default function Drawer({ selected, newSelect }: IProps) {
         <div className="weather">
           <div className="drawer__icon-wrapper" onClick={handleClick}>
             <span className="drawer__icon">
-              <img src={'/src/css/icons/weather.png'} alt="wather" />
+              <img
+                src="/src/css/icons/weather.png"
+                alt="wather"
+                loading="lazy"
+              />
             </span>
           </div>
         </div>

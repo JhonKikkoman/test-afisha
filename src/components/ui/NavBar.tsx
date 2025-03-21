@@ -9,15 +9,15 @@ const titleArray: titleT[] = [
 ];
 
 interface IProps {
-  reset: React.Dispatch<React.SetStateAction<number>>;
+  resetSelect: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-export default function NavBar({ reset }: IProps) {
+export default function NavBar({ resetSelect }: IProps) {
   const [active, setActive] = useState<number>(titleArray[0].id);
   const navigate = useNavigate();
 
   const handleClick = (id: number, route: string) => {
-    reset(0);
+    resetSelect(null);
     navigate(route);
     setActive(id);
   };

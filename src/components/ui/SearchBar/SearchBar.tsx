@@ -15,7 +15,11 @@ const cities: dropdownItemsT[] = [
   { id: 2, item: 'Симферополь' },
 ];
 
-export default function SearchBar() {
+interface IProps {
+  setWidgetToggle: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function SearchBar({ setWidgetToggle }: IProps) {
   return (
     <div className="search-bar">
       <div className="search-bar__body">
@@ -26,7 +30,7 @@ export default function SearchBar() {
         <button className="search-bar__button" type="button">
           Найти
         </button>
-        <Widget />
+        <Widget setWidgetToggle={setWidgetToggle} />
       </div>
     </div>
   );
